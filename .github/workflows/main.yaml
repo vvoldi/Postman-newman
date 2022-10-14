@@ -1,4 +1,4 @@
-name: Test-Build
+name: Test Build
 on:
   workflow_dispatch:
   push:
@@ -21,7 +21,6 @@ jobs:
       - name: Run POSTMAN collection
         run: |
           newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
-      continiue-on-error: true
       - name: Output the run Details
         uses: actions/upload-artifact@v2
         with:
