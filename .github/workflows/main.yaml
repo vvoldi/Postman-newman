@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: "v16.14.0"
       - name: Install newman
@@ -21,7 +21,7 @@ jobs:
       - name: Run POSTMAN collection
         continue-on-error: true
         run: |
-          npx newman run petstore.postman_collection.json -r htmlextra --reporter-htmlextra-export ./newman/index.html
+          npx newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export ./newman/index.html
       - name: Deploy report page
         uses: peaceiris/actions-gh-pages@v3
         with:
